@@ -1,6 +1,10 @@
 <?php
+session_start();
 require_once 'inc/db_connect.php';
 $mysqli = connect();
+if(isset($_SESSION[ "SES_USER_LER" ])){
+
+
 // ตรวจสอบว่ามีค่า 'id' ใน $_POST หรือไม่
 if (isset($_POST['id'])) {
     // รับค่า 'id' และทำความสะอาดเพื่อป้องกัน SQL Injection
@@ -24,5 +28,10 @@ if (isset($_POST['id'])) {
 } else {
     // 'id' ไม่ถูกส่งมาใน $_POST
     echo "ID not provided in POST data.";
+}
+}else{
+     echo "<font color='red'>";
+     echo "กรุณาเข้าสู่ระบบก่อนดูวิดีโอ";
+     echo "</font>";
 }
 ?>
