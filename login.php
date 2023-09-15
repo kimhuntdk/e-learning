@@ -39,7 +39,7 @@
             </label>
             <label>
             <span>Status</span>
-                    <select name="status" require>
+                    <select name="status" class="form-select" require>
                       <option value="0"></option>
                       <option value="1">Graduate Student</option>
                       <option value="2">Advisor</option>

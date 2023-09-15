@@ -34,13 +34,13 @@
                 <div class="accordion accordion-flush" id="accordionFlushExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingOne"> 
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            <button id="click_see" class="accordion-button collapsed" data-id="1" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                             วีดีโอนำเสนอระบบ iThesis 2016
                                 <div class="accordion-content">
                                 </div>
                             </button>
                         </h2>
-                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                        <div id="flush-collapseOne" class="accordion-collapse collapse click_see" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                             <br>
                             <!-- <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div> -->
                             <iframe width="660" height="415" src="https://www.youtube.com/embed/Yg9II-2nvDc?si=qNY8yw7PJBEsFejI" frameborder="0" allowfullscreen></iframe>
@@ -352,13 +352,26 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
+    <!-- <script src="lib/wow/wow.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script> -->
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <!-- <script>
+        $( "#click_see" ).on( "click", function() {
+            var id =   $("#click_see").attr("data-id");
+            alert(id);
+            $.ajax({url: "update_view.php",
+                        method:'post',
+                        data:{id:id},
+                        success: function(result){
+                        //  console.log(result);
+            
+                  }});
+         } );
+    </script> -->
 </body>
 
 </html>

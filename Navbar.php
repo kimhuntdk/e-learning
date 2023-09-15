@@ -1,4 +1,7 @@
-    <!-- Navbar Start -->
+<?php
+session_start();
+?>
+   <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
         <a href="index.php" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
         <img width="140" height="80" class="vc_single_image-img" src="https://grad.msu.ac.th/th/wp-content/uploads/2022/11/cropped-308991677_648282600172299_4337174340948988668_n-e1671438758134.png"  alt="logo">
@@ -21,8 +24,14 @@
                 </div> -->
                 <a href="contact.php" class="nav-item nav-link"><B>Contact</B></a>
                 <a href="about.php" class="nav-item nav-link"><B>About</B></a>
+                <?php 
+                    if(isset($_SESSION['SES_USER_LER'])){
+                ?>
+                <a href="logout.php" class="nav-item nav-link"><B>Logout</B></a>
+                <?php }else { ?>
                 <a href="login.php" class="nav-item nav-link"><B>Login</B></a>
-            </div>
+              <?php  } ?>
+            </div> 
             <!-- <a href="login.php" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Login<i class="fa fa-arrow-right ms-3"></i></a> -->
         </div>
     </nav>
