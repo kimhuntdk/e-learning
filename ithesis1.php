@@ -100,8 +100,12 @@ $stmt->bind_param("i", $elearning_type); // กำหนดประเภทข
     <!-- Courses Start -->
     <div class="container-xxl py-5">
         <div class="container">
-        <div class="accordion" id="accordionExample">
-
+        
+<div class="list-group">
+<button type="button" class="list-group-item list-group-item-action">รายการ</button>
+  <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
+    iThesis
+  </button>
   <?php 
   // ประมวลผลคำสั่ง SQL
 if ($stmt->execute()) {
@@ -112,14 +116,11 @@ if ($stmt->execute()) {
 
 
   ?>
-
-      <button  id="click_see" data-id="<?php echo $row['eleaning_id'];?>" type="button" class="btn btn-primary click_see" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
-      <?php echo $row['eleaning_id'];?>  <?php echo $row['eleaning_name'];?>
-      </button>
-        
-  <?php } 
-   $result->close(); 
-  } ?>
+  <button id="click_see" onclick="Click_Show(<?php echo $row['eleaning_id'];?>)" type="button" class="list-group-item list-group-item-action" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"> <?php echo $row['eleaning_name'];?> View : <?php echo $row['eleaning_view'];?> </button>
+ <?php 
+    }
+}
+ ?>
 </div>
             
         </div>
@@ -172,7 +173,7 @@ if ($stmt->execute()) {
     </div> -->
     <!-- Testimonial End -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-xl">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">Show Data</h1>
@@ -208,9 +209,8 @@ if ($stmt->execute()) {
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
         <script>
-        $( ".click_see" ).on( "click", function() {
-            var id =   $(".click_see").attr("data-id");
-            alert(id);
+        function Click_Show(id){
+            var id =   id;
             $.ajax({url: "update_view.php",
                         method:'post',
                         data:{id:id},
@@ -219,7 +219,7 @@ if ($stmt->execute()) {
                         //console.log(result);
             
                   }});
-         } );
+         } 
     </script>
 </body>
 
